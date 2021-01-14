@@ -23,7 +23,6 @@ public class ConsumerController {
 
     @Autowired
     private RestTemplate restTemplate;
-
     @Value("${test.url}")
     private String url;
 
@@ -32,8 +31,8 @@ public class ConsumerController {
         List<ServiceInstance> instances = discoveryClient.getInstances("PROVICE-SERVER");
         ServiceInstance instance = instances.get(0);
 //        url = url + id;
-//        URI uri = instance.getUri();
+        URI uri = instance.getUri();
 //        return restTemplate.getForObject(url, UserModel.class);
-        return restTemplate.getForObject("http://PROVICE-SERVER"+ "/company/" + id, UserModel.class);
+        return restTemplate.getForObject(instance.getUri() + "/company/"+id, UserModel.class);
     }
 }

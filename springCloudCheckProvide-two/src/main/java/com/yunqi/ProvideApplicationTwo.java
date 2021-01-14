@@ -14,9 +14,9 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 @SpringBootApplication
 @EnableEurekaClient
 @MapperScan("com.yunqi.dao")
-public class ProvideApplication {
+public class ProvideApplicationTwo {
 
     public static void main(String[] args) {
-        SpringApplication.run(ProvideApplication.class,args);
+        SpringApplication.run(ProvideApplicationTwo.class,args);
     }
 }

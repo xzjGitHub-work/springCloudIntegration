@@ -25,7 +25,7 @@ public class CompanyController {
      */
     @GetMapping("/{id}")
     public UserModel findOne(@PathVariable(name = "id")  String id){
-        System.out.println("提供方----one");
+        System.out.println("提供方----two");
         return userService.findOne(id);
     }
 }

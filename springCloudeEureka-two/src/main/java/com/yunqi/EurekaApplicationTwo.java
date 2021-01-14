@@ -2,27 +2,22 @@ package com.yunqi;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.client.loadbalancer.LoadBalanced;
-import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
 
 /**
- * @describe:消费方启动
- *
- * @author:xzj
- * @createDate:2021/1/01 16:41
- * @param:
- * @return:
+ * @Description: 作用描述
+ * @Author: xzj
+ * @CreateDate: 2021/1/14 13:54
  */
 @SpringBootApplication
-@EnableEurekaClient
-public class ConsumerApplication {
+@EnableEurekaServer
+public class EurekaApplicationTwo {
     public static void main(String[] args) {
-        SpringApplication.run(ConsumerApplication.class,args);
+        SpringApplication.run(EurekaApplicationTwo.class,args);
     }
     @Bean
-    @LoadBalanced
     public RestTemplate restTemplate(){
         return new RestTemplate();
     }
