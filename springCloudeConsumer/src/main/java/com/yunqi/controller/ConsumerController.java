@@ -1,6 +1,7 @@
 package com.yunqi.controller;
 
 import com.yunqi.bean.UserModel;
+import com.yunqi.servcice.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.client.ServiceInstance;
@@ -24,11 +25,15 @@ public class ConsumerController {
     @Autowired
     private RestTemplate restTemplate;
 
+    @Autowired
+    private UserService userService;
+
     @Value("${test.url}")
     private String url;
 
     @GetMapping("/{id}")
     public UserModel findOne(@PathVariable(name = "id") String id) {
+//        System.out.println(userService.findOne("1"));
         List<ServiceInstance> instances = discoveryClient.getInstances("PROVICE-SERVER");
         ServiceInstance instance = instances.get(0);
 //        url = url + id;

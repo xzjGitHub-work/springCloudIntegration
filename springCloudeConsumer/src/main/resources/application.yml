@@ -14,3 +14,15 @@ eureka:
   client:
     service-url: # EurekaServer地址
       defaultZone: http://127.0.0.1:10086/eureka,http://127.0.0.1:10087/eureka
+#设置ribbon的负载均衡策略
+# 随机选择服务 com.netflix.loadbalancer.RandomRule
+# 轮询选择服务 com.netflix.loadbalancer.RoundRobinRule（默认）
+#PROVICE-SERVER:
+#  ribbon:
+#    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
+
+# ribbon默认选择的懒加载 访问的时候才会把负载均衡的客户端创建 有时会出现超时的情况 可以选择饥饿加载
+ribbon:
+  eager-load:
+    clients: consumer-server
+    enabled: true

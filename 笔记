@@ -1,0 +1,3 @@
+1 ribbon是默认提供很多的负载均衡算法,轮询、随机。。也可以手动自定义负载均衡的算法
+2 使用ribbon的负载均衡可以直接使用服务的serviceId名称访问主机
+    当启用负载均衡的时候,`LoadBalancerInterceptor`类会堆RestTemplate的请求做拦截,从Eureka根据服务id获取服务列表,随后利用负载均衡算法获取到真实的地址
