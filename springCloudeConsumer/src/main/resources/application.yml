@@ -9,7 +9,7 @@ spring:
   application:
     name: consumer-server
 test:
-  url: http://localhost:8081/company/
+  url: http://localhost:8881/company/
 eureka:
   client:
     service-url: # EurekaServer地址
