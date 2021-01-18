@@ -17,7 +17,7 @@ eureka:
 #设置ribbon的负载均衡策略
 # 随机选择服务 com.netflix.loadbalancer.RandomRule
 # 轮询选择服务 com.netflix.loadbalancer.RoundRobinRule（默认）
-#PROVICE-SERVER:
+#provide-server: #这个是serviceid
 #  ribbon:
 #    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
 

@@ -7,7 +7,7 @@ spring:
     username: root
     password: root
   application:
-    name: provice-server
+    name: provide-server
 eureka:
   client:
     service-url: # EurekaServer地址

@@ -11,6 +11,7 @@
     <modules>
         <module>springCloudCheckStart</module>
         <module>springCloudeConsumer</module>
+        <module>springCloudZuul</module>
     </modules>
 
     <parent>

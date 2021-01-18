@@ -6,6 +6,8 @@ import com.yunqi.servcice.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class CompanyServiceImpl implements UserService {
 
@@ -23,5 +25,18 @@ public class CompanyServiceImpl implements UserService {
     @Override
     public UserModel findOne(String id) {
         return userDao.selectById(id);
+    }
+
+    /**
+     * @describe:查询所有的数据
+     *
+     * @author:xzj
+     * @createDate:2021/1/18 10:54
+     * @param:[]
+     * @return:com.yunqi.bean.UserModel
+     */
+    @Override
+    public List<UserModel> findList() {
+        return userDao.selectList(null);
     }
 }

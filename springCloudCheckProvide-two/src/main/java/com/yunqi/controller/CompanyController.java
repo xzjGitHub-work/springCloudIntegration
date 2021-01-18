@@ -1,6 +1,7 @@
 package com.yunqi.controller;
 
 import com.alibaba.fastjson.JSONObject;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.yunqi.bean.UserModel;
 import com.yunqi.servcice.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/company")
+@RequestMapping("/provide")
 public class CompanyController {
 
     @Autowired
@@ -18,18 +19,32 @@ public class CompanyController {
 
     /**
      * @describe:根据日志查询
-     *
      * @author:xzj
      * @createDate:2021/1/14 16:42
      * @param:[id]
      * @return:com.yunqi.bean.UserModel
      */
     @GetMapping("/{id}")
-    public JSONObject findOne(@PathVariable(name = "id")  String id){
+    public JSONObject findOne(@PathVariable(name = "id") String id) {
         System.out.println("提供方----two");
         JSONObject json = new JSONObject();
-        json.put("data",userService.findOne(id));
-        json.put("msg","success");
+        json.put("data", userService.findOne(id));
+        json.put("msg", "success");
+        return json;
+    }
+
+    public JSONObject findOneFallBack(@PathVariable(name = "id") String id) {
+        JSONObject json = new JSONObject();
+        System.out.println("提供方----one");
+        json.put("msg", "当前服务正忙,请稍后再试");
+        return json;
+
+    }
+
+    @GetMapping("/findList")
+    public JSONObject findList() throws InterruptedException {
+        JSONObject json = new JSONObject();
+        json.put("data", userService.findList());
         return json;
     }
 }
