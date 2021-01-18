@@ -1,5 +1,6 @@
 package com.yunqi.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import com.yunqi.bean.UserModel;
 import com.yunqi.servcice.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,13 +33,13 @@ public class ConsumerController {
     private String url;
 
     @GetMapping("/{id}")
-    public UserModel findOne(@PathVariable(name = "id") String id) {
+    public JSONObject findOne(@PathVariable(name = "id") String id) {
 //        System.out.println(userService.findOne("1"));
         List<ServiceInstance> instances = discoveryClient.getInstances("PROVICE-SERVER");
         ServiceInstance instance = instances.get(0);
 //        url = url + id;
 //        URI uri = instance.getUri();
 //        return restTemplate.getForObject(url, UserModel.class);
-        return restTemplate.getForObject("http://PROVICE-SERVER"+ "/company/" + id, UserModel.class);
+        return restTemplate.getForObject("http://PROVICE-SERVER"+ "/company/" + id, JSONObject.class);
     }
 }

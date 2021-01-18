@@ -12,3 +12,10 @@ eureka:
   client:
     service-url: # EurekaServer地址
       defaultZone: http://127.0.0.1:10086/eureka,http://127.0.0.1:10087/eureka
+#设置接口超时时间
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 2000

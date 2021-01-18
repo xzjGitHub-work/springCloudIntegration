@@ -1,5 +1,6 @@
 package com.yunqi.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import com.yunqi.bean.UserModel;
 import com.yunqi.servcice.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,8 +25,11 @@ public class CompanyController {
      * @return:com.yunqi.bean.UserModel
      */
     @GetMapping("/{id}")
-    public UserModel findOne(@PathVariable(name = "id")  String id){
+    public JSONObject findOne(@PathVariable(name = "id")  String id){
         System.out.println("提供方----two");
-        return userService.findOne(id);
+        JSONObject json = new JSONObject();
+        json.put("data",userService.findOne(id));
+        json.put("msg","success");
+        return json;
     }
 }

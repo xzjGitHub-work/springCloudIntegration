@@ -3,6 +3,8 @@ package com.yunqi;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.mybatis.spring.annotation.MapperScan;
+import org.springframework.cloud.client.SpringCloudApplication;
+import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.context.annotation.Bean;
@@ -14,8 +16,11 @@ import org.springframework.web.client.RestTemplate;
  * @CreateDate: 2021/1/14 11:13
  */
 
-@SpringBootApplication
-@EnableEurekaClient
+//@SpringBootApplication
+//@EnableEurekaClient
+//@EnableCircuitBreaker
+//有一个组合注解@SpringCloudApplication 点开这个注解
+@SpringCloudApplication
 @MapperScan("com.yunqi.dao")
 public class ProvideApplication {
 

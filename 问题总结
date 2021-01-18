@@ -1,3 +1,6 @@
 1 springcloud搭建Eureka集群的时候为什么要相互注册
-2 Ribbon怎么控制到接口层面负载均衡
-3 怎么自定义Ribbon的负载均衡算法
+2 Ribbon能不能控制到接口层面的负载均衡?如果能怎么做
+    解答：
+3 怎么自定义Ribbon的负载均衡算法,
+    解答：将IRule的实现类注入到IOC中,可以用注解的方式也可以用配置文件的方式 看Consumer中的LoadBalanceConfiguration类或者application.yml配置
+4 Hystrix执行流程,需要解读源码

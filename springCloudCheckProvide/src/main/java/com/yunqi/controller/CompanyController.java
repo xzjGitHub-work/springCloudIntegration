@@ -1,5 +1,7 @@
 package com.yunqi.controller;
 
+import com.alibaba.fastjson.JSONObject;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.yunqi.bean.UserModel;
 import com.yunqi.servcice.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,8 +26,19 @@ public class CompanyController {
      * @return:com.yunqi.bean.UserModel
      */
     @GetMapping("/{id}")
-    public UserModel findOne(@PathVariable(name = "id")  String id){
+    @HystrixCommand(fallbackMethod = "findOneFallBack")
+    public JSONObject findOne(@PathVariable(name = "id")  String id) throws InterruptedException {
         System.out.println("提供方----one");
-        return userService.findOne(id);
+        Thread.sleep(3000L);
+        JSONObject json = new JSONObject();
+        json.put("data",userService.findOne(id));
+        return json;
+    }
+    public JSONObject findOneFallBack(@PathVariable(name = "id")  String id){
+        JSONObject json = new JSONObject();
+        System.out.println("提供方----one");
+        json.put("msg","当前服务正忙,请稍后再试");
+        return json;
+
     }
 }
