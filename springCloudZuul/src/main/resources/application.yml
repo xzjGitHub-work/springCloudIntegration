@@ -1,0 +1,23 @@
+server:
+  port: 10010
+spring:
+  application:
+    name: zuul-server
+zuul:
+  prefix: /api # 添加路由前缀
+  routes:
+    #provide-service: # 这里是路由id，随意写
+      #path: /provide-server/** # 这里是映射路径,建议直接写eureka中服务名称
+      #serviceId: provide-server #因为注册了Eureka就不用再注定id直接用serviceId指定服务
+#      url: http://127.0.0.1:8881 # 映射路径对应的实际url地址
+    provide-server: /provide-server/** #跟上面的写发跟一致 只是比上方写法简化
+      #路由前缀
+eureka:
+  client:
+    service-url: #网关注册到Eureka中
+      defaultZone: http://127.0.0.1:10086/eureka,http://127.0.0.1:10087/eureka
+#可以去掉服务名
+  routes:
+    consumer-server:
+      path: /provide/**
+      strip-prefix: false

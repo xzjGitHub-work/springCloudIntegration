@@ -33,20 +33,20 @@ public class ConsumerController {
     @Value("${test.url}")
     private String url;
 
-    @GetMapping("/{id}")
+    @GetMapping("/findOne")
     @HystrixCommand(fallbackMethod = "findOneFallBack")
-    public JSONObject findOne(@PathVariable(name = "id") String id) throws InterruptedException {
+    public JSONObject findOne(String id) throws InterruptedException {
 //        Thread.sleep(3000l);
 //        System.out.println(userService.findOne("1"));
-        List<ServiceInstance> instances = discoveryClient.getInstances("PROVICE-SERVER");
-        ServiceInstance instance = instances.get(0);
+//        List<ServiceInstance> instances = discoveryClient.getInstances("PROVICE-SERVER");
+//        ServiceInstance instance = instances.get(0);
 //        url = url + id;
 //        URI uri = instance.getUri();
 //        return restTemplate.getForObject(url, UserModel.class);
-        return restTemplate.getForObject("http://PROVICE-SERVER" + "/company/" + id, JSONObject.class);
+        return restTemplate.getForObject("http://provide-server/provide/findOne?id=" + id, JSONObject.class);
     }
 
-    public JSONObject findOneFallBack(@PathVariable(name = "id") String id) {
+    public JSONObject findOneFallBack(String id) {
         JSONObject json = new JSONObject();
         json.put("msg","consumer-server服务正忙,请稍后再试");
         return json;

@@ -1,6 +1,7 @@
 package com.yunqi.controller;
 
 import com.alibaba.fastjson.JSONObject;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.yunqi.bean.UserModel;
 import com.yunqi.feignClien.ProvideClient;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,15 +21,24 @@ import java.util.List;
 @RequestMapping("/consumerByFeign")
 public class ConsumerControllerByFeign {
 
-    @Qualifier("provide-server")
     @Autowired
     private ProvideClient provideClient;
 
     @GetMapping("/findList")
-    public JSONObject findList(){
+    @HystrixCommand(fallbackMethod = "findListFallBack")
+    public JSONObject findList(String id) throws Exception {
+        if (id.isEmpty() || "id".equals(id)){
+            throw new Exception();
+        }
         JSONObject json = provideClient.findList();
         return json;
     }
+    public JSONObject findListFallBack(String id){
+        JSONObject json  = new JSONObject();
+        json.put("msg","使用feign调用启动熔断器");
+        return json;
+    }
+
 }
 
 
