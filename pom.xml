@@ -12,6 +12,8 @@
         <module>springCloudCheckStart</module>
         <module>springCloudeConsumer</module>
         <module>springCloudZuul</module>
+        <module>RegistrationCenterNacos</module>
+        <module>RegisterToNacosProject</module>
     </modules>
 
     <parent>

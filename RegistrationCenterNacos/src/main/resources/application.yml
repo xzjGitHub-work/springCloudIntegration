@@ -1,0 +1,20 @@
+# 应用名称
+application:
+  name: nacos-server
+#服务端口
+server:
+    port: 8888
+#数据配置
+datasource:
+  url: localhost:3306
+  username: root
+  password: root
+#注册地址
+spring:
+  cloud:
+  nacos:
+    discovery:
+      server-addr: localhost:8848 #服务中心地址
+    config: #配置中心模块配置
+      server-addr: ${spring.cloud.nacos.discovery.server-addr}
+      file-extension: properties #文件类型

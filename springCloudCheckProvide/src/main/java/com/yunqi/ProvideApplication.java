@@ -16,9 +16,9 @@ import org.springframework.web.client.RestTemplate;
  * @CreateDate: 2021/1/14 11:13
  */
 
-//@SpringBootApplication
-//@EnableEurekaClient
-//@EnableCircuitBreaker
+//@SpringBootApplication //Springboot启动注解
+//@EnableEurekaClient //开启Eureka客户端注解
+//@EnableCircuitBreaker //开启熔断器
 //有一个组合注解@SpringCloudApplication 点开这个注解
 @SpringCloudApplication
 @MapperScan("com.yunqi.dao")
