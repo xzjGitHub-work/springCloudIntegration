@@ -8,6 +8,11 @@ spring:
     password: root
   application:
     name: provide-server
+  mvc:
+    pathmatch:
+      use-registered-suffix-pattern: true
+#    view:
+#      suffix: html
 eureka:
   client:
     service-url: # EurekaServer地址
