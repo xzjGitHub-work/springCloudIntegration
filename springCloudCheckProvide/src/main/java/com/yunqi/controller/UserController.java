@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.yunqi.bean.UserModel;
 import com.yunqi.servcice.user.UserService;
+import com.yunqi.test.Test01;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,6 +17,9 @@ public class UserController {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private Test01 test;
 
     /**
      * @describe:根据日志查询
@@ -70,6 +74,21 @@ public class UserController {
     public JSONObject findById(String id) throws InterruptedException {
         JSONObject json = new JSONObject();
         json.put("data", userService.findOne(id));
+        return json;
+    }
+    /**
+     * @describe:根据id查询数据
+     *
+     * @author:xzj
+     * @createDate:2021/1/18 13:51
+     * @param:[id]
+     * @return:com.alibaba.fastjson.JSONObject
+     */
+    @GetMapping("/testConfigure")
+    public JSONObject testConfigure() {
+        JSONObject json = new JSONObject();
+        String s = test.retrrnString();
+        json.put("name",s);
         return json;
     }
 }
