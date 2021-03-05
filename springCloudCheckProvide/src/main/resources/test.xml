@@ -8,6 +8,6 @@ http://www.springframework.org/schema/context
 http://www.springframework.org/schema/context/spring-context.xsd" default-autowire="byName" default-lazy-init="false" >
     <description>Spring Configuration</description>
     <beans>
-        <bean id="test1" class="com.yunqi.test.Test01"/>
+        <bean id="test1" class="com.yunqi.xzj.test.Test01"/>
     </beans>
 </beans>
