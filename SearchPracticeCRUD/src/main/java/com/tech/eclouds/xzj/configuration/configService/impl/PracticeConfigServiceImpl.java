@@ -41,13 +41,14 @@ public class PracticeConfigServiceImpl {
         if (jsonObject == null) {
             try {
                 PageModel<User> pageModel =
-                        mySqlTemplate.select(QueryPacker.create(User.class).where(Criteria.field(User::getName).eq("root")));
+                        mySqlTemplate.select(QueryPacker.create(User.class).where(Criteria.field(User::getAccount).eq("root")));
                 if (pageModel == null || CollectionUtils.isEmpty(pageModel.getResultList())) {
 
                 }
                 User user = pageModel.getResultList().stream().findFirst().get();
                 PageModel<Account> fieldPageModel = mySqlTemplate.select(QueryPacker.create(User.class).where(Criteria.field(Account::getUserId).eq(user.getId())));
-                redisTemplate.boundHashOps("wlzx").put("xzj", fieldPageModel);
+                redisTemplate.boundHashOps("wlzx").put("xzj", JSONObject.toJSONString(fieldPageModel));
+                json.put("data",user);
                 json.put("result",true);
                 json.put("msg","success");
                 return json;

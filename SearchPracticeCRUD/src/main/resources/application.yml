@@ -1,4 +1,8 @@
 spring:
+  data:
+    mongodb:
+      host: 127.0.0.1:27017
+      database: xzjdb
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://localhost:3306/db_library?characterEncoding=utf-8
