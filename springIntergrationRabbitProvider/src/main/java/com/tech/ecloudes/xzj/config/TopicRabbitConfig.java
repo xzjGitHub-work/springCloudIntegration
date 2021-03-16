@@ -18,17 +18,20 @@ public class TopicRabbitConfig {
     //绑定键
     public final static String man = "topic.man";
     public final static String woman = "topic.woman";
- 
+
+    //绑定队列key
     @Bean
     public Queue firstQueue() {
         return new Queue(TopicRabbitConfig.man);
     }
- 
+
+    //绑定队列key
     @Bean
     public Queue secondQueue() {
         return new Queue(TopicRabbitConfig.woman);
     }
- 
+
+    //绑定交换机key
     @Bean
     TopicExchange exchange() {
         return new TopicExchange("topicExchange");
