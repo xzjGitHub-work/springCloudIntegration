@@ -13,6 +13,7 @@
         <module>RegistrationCenterNacos</module>
         <module>RegisterToNacosProject</module>
         <module>SearchPracticeCRUD</module>
+        <module>springBootIntergrationAndRedis</module>
     </modules>
 
     <parent>
