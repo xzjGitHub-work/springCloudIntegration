@@ -67,4 +67,18 @@ public class TestRedisCRUDController {
         hash.put("xzjHash","2222",new User("许兆举","233","男"));
 
     }
+    @RequestMapping("/getZSetReverseRange")
+    public void getZSetReverseRange(){
+        String key = "key:reverse:range";
+        ArrayList<String> listStr = new ArrayList<>();
+        listStr.add("1");
+        listStr.add("2");
+        listStr.add("3");
+        redisTemplate.boundListOps("listValue").rightPush(listStr);
+        String str = (String) redisTemplate.boundListOps("listValue").index(1);
+        System.err.println(str);
+        System.out.println(JSONObject.toJSONString(redisTemplate.boundListOps("listValue").range(0,10)));
+        Object[] objects = redisTemplate.boundZSetOps("listValue").reverseRange(0, 99).toArray();
+        System.out.println(JSONObject.toJSONString(objects));
+    }
 }
