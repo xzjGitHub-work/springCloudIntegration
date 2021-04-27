@@ -7,7 +7,7 @@ spring:
 
 dubbo:
   application:
-    id: dubboConsumer
+    id: dubboProvider
   registry:
     protocol: zookeeper
     address: 127.0.0.1:2181
@@ -17,6 +17,6 @@ dubbo:
 server:
   port: 8100
   application:
-    name: cconsumerProvider
+    name: dubboProvider
   main:
     allow-bean-definition-overriding: true
