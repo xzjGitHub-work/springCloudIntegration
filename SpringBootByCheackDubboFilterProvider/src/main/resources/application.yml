@@ -1,0 +1,22 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/db_library?characterEncoding=utf-8
+    username: root
+    password: root
+
+dubbo:
+  application:
+    id: dubboProvider
+  registry:
+    protocol: zookeeper
+    address: 127.0.0.1:2181
+  protocol:
+    name: dubbo
+    port: 23853
+server:
+  port: 8100
+  application:
+    name: dubboProvider
+  main:
+    allow-bean-definition-overriding: true

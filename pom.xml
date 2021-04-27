@@ -14,6 +14,9 @@
         <module>RegisterToNacosProject</module>
         <module>SearchPracticeCRUD</module>
         <module>springBootIntergrationAndRedis</module>
+        <module>SpringBootIntegrationByCheackDubboFilter</module>
+        <module>SpringBootByCheackDubboFilterConsumer</module>
+        <module>SpringBootByDubboConfiger</module>
     </modules>
 
     <parent>
