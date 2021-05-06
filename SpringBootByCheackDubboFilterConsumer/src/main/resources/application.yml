@@ -11,6 +11,8 @@ dubbo:
   registry:
     protocol: zookeeper
     address: 127.0.0.1:2181
+  consumer:
+    timeout: 100000
   protocol:
     name: dubbo
     port: 23854

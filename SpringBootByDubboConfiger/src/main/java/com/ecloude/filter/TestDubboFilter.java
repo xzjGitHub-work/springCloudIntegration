@@ -1,9 +1,12 @@
 package com.ecloude.filter;
 
+import com.ecloude.intercepter.InterceptorByDubbo;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.dubbo.common.constants.CommonConstants;
 import org.apache.dubbo.common.extension.Activate;
 import org.apache.dubbo.rpc.*;
+
+import java.util.UUID;
 
 /**
  * @Description: 作用描述
@@ -20,10 +23,10 @@ public class TestDubboFilter implements Filter {
         long start = System.currentTimeMillis();
         if (RpcContext.getContext().isConsumerSide()){
             result = invoker.invoke(invocation);
-            log.info("consumer log 打印 耗时[ {} ]",System.currentTimeMillis() -start);
+            log.info("dubbo Filter Log consumer log 打印 耗时[ {} ] LogId [ {} ]",System.currentTimeMillis() -start, InterceptorByDubbo.threadLocal.get());
         }else if (RpcContext.getContext().isProviderSide()){
             result = invoker.invoke(invocation);
-            log.info("provider log 打印 耗时[ {} ]",System.currentTimeMillis() -start);
+            log.info("dubbo Filter Log provider log 打印 耗时[ {} ] LogId [ {} ]",System.currentTimeMillis() -start, InterceptorByDubbo.threadLocal.get());
         }else {
             log.info("日志打印了");
             result = invoker.invoke(invocation);

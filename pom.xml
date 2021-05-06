@@ -14,9 +14,21 @@
         <module>RegisterToNacosProject</module>
         <module>SearchPracticeCRUD</module>
         <module>springBootIntergrationAndRedis</module>
-        <module>SpringBootIntegrationByCheackDubboFilter</module>
-        <module>SpringBootByCheackDubboFilterConsumer</module>
+        <module>springCloudCheckProvide</module>
         <module>SpringBootByDubboConfiger</module>
+        <module>SpringBootByCheackDubboFilterProvider</module>
+        <module>SpringBootByCheackDubboFilterConsumer</module>
+        <module>springBootByDubboCore</module>
+        <module>springBootConsumerByDubbo</module>
+        <module>springBootProvideByDubbo</module>
+        <module>springBootProvideByDubboTwo</module>
+        <module>springCloudCheckProvide-two</module>
+        <module>springCloudConsumer</module>
+        <module>springCloudConsumer-two</module>
+        <module>springIntergrationRabbitConsumer</module>
+        <module>springIntergrationRabbitProvider</module>
+        <module>springCloudEureka</module>
+        <module>springCloudEureka-two</module>
     </modules>
 
     <parent>

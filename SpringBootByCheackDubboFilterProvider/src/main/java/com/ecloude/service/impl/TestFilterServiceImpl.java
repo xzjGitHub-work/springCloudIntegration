@@ -1,6 +1,7 @@
 package com.ecloude.service.impl;
 
 import com.ecloude.service.TestFilterService;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.dubbo.config.annotation.Service;
 import org.springframework.stereotype.Component;
 
@@ -11,10 +12,13 @@ import org.springframework.stereotype.Component;
  */
 @Service
 @Component
+@Slf4j
 public class TestFilterServiceImpl implements TestFilterService {
 
     @Override
-    public String TestFilterMethod() {
+    public String TestFilterMethod() throws InterruptedException {
+        Thread.sleep(5000l);
+        log.info("provider: 打印[啊啊啊啊啊啊啊]");
         return "访问到了";
     }
 

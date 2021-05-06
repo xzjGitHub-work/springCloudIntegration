@@ -6,7 +6,7 @@ package com.ecloude.service;
  * @CreateDate: 2021/4/27 16:03
  */
 public interface TestFilterService {
-    String TestFilterMethod();
+    String TestFilterMethod() throws InterruptedException;
     String TestFilterMethodByToken(String token);
 
 }
