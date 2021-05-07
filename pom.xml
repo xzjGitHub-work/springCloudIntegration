@@ -29,6 +29,7 @@
         <module>springIntergrationRabbitProvider</module>
         <module>springCloudEureka</module>
         <module>springCloudEureka-two</module>
+        <module>SpringBootAndHelloNetty</module>
     </modules>
 
     <parent>
