@@ -1,0 +1,5 @@
+com\yunqi\bean\UserModel.class
+com\yunqi\controller\demoController.class
+com\yunqi\ProvideApplication.class
+com\yunqi\servcice\impl\RemoteHelloServiceImpl.class
+com\yunqi\servcice\RemoteHelloService.class
