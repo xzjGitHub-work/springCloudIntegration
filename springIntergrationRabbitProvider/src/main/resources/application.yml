@@ -11,4 +11,6 @@ spring:
     username: guest
     password: guest
     #虚拟host 可以不设置,使用server默认host
-#    virtual-host: JCcccHost
+    virtual-host: /
+    # 打开消息确认机制
+    publisher-confirm-type: correlated
